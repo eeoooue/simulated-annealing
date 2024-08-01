@@ -3,6 +3,7 @@ import { AnnealingDemo } from "./annealing_demo.js";
 import { Statistician } from "./statistician.js";
 import { MapData } from "./map_data.js";
 import { MapPoint } from "./map_point.js";
+import { PathAnalyst } from "./path_analyst.js";
 
 
 export class SolutionState {
@@ -10,18 +11,22 @@ export class SolutionState {
     public demo: AnnealingDemo;
 
     public currentScore = 1.0;
+    public pathLength = 0; // pixels
     public statesAccepted = 0;
     public statesRejected = 0;
 
     public statistician: Statistician = new Statistician();
     public state: MapPoint[] = [];
+    public analyst: PathAnalyst = new PathAnalyst();
 
     constructor(demo: AnnealingDemo) {
 
         this.demo = demo;
         this.loadPoints();
+        this.pathLength = this.analyst.getPathLength(this.state);
         this.attemptMutation();
     }
+
 
     loadPoints() {
 
@@ -38,6 +43,8 @@ export class SolutionState {
 
         var suggestion: number = this.getRandomState();
         var suggestedState: MapPoint[] = this.getNewState();
+        var suggestedPathLength: number = this.analyst.getPathLength(suggestedState);
+        console.log(`found path with length ${suggestedPathLength} px`)
 
         var newScore = suggestion;
         var oldScore = this.currentScore;

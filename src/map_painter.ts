@@ -4,6 +4,8 @@ export class MapPainter {
 
     public container: HTMLElement;
 
+    public mapSize: number = 650;
+
     constructor(container: HTMLElement){
         this.container = container;
     }
@@ -38,8 +40,12 @@ export class MapPainter {
 
         var element = document.createElement("div");
         element.classList.add("map-point");
-        element.style.marginLeft = `${point.x}px`;
-        element.style.marginTop = `${point.y}px`;
+
+        const x: number = point.getScaledX(this.mapSize);
+        const y: number = point.getScaledY(this.mapSize);
+
+        element.style.marginLeft = `${x}px`;
+        element.style.marginTop = `${y}px`;
 
         return element;
     }
@@ -49,9 +55,15 @@ export class MapPainter {
         var element = document.createElement("div");
         element.classList.add("map-path-container");
 
+        const x1: number = a.getScaledX(this.mapSize) + 5;
+        const y1: number = a.getScaledY(this.mapSize) + 5;
+
+        const x2: number = b.getScaledX(this.mapSize) + 5;
+        const y2: number = b.getScaledY(this.mapSize) + 5;
+
         element.innerHTML = `
             <svg width="100%" height="100%" style="position:absolute;top:0;left:0;">
-            <line x1="${a.x + 5}px" y1="${a.y + 5}px" x2="${b.x + 5}px" y2="${b.y + 5}px" style="stroke:black;stroke-width:1"/>
+            <line x1="${x1}px" y1="${y1}px" x2="${x2}px" y2="${y2}px" style="stroke:black;stroke-width:1"/>
             </svg>
         `;
 

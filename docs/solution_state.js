@@ -1,14 +1,18 @@
 import { Statistician } from "./statistician.js";
 import { MapData } from "./map_data.js";
+import { PathAnalyst } from "./path_analyst.js";
 export class SolutionState {
     constructor(demo) {
         this.currentScore = 1.0;
+        this.pathLength = 0; // pixels
         this.statesAccepted = 0;
         this.statesRejected = 0;
         this.statistician = new Statistician();
         this.state = [];
+        this.analyst = new PathAnalyst();
         this.demo = demo;
         this.loadPoints();
+        this.pathLength = this.analyst.getPathLength(this.state);
         this.attemptMutation();
     }
     loadPoints() {
@@ -22,6 +26,8 @@ export class SolutionState {
     attemptMutation() {
         var suggestion = this.getRandomState();
         var suggestedState = this.getNewState();
+        var suggestedPathLength = this.analyst.getPathLength(suggestedState);
+        console.log(`found path with length ${suggestedPathLength} px`);
         var newScore = suggestion;
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;

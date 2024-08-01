@@ -2,13 +2,10 @@ import { MapPoint } from "./map_point.js";
 export class MapData {
     constructor() {
         this.points = [];
-        this.mapSize = 650;
         this.loadCampus();
     }
     addPoint(identifier, x, y) {
-        var x_scaled = this.mapSize * x / 1000;
-        var y_scaled = this.mapSize * y / 1000;
-        const point = new MapPoint(identifier, x_scaled, y_scaled);
+        const point = new MapPoint(identifier, x, y);
         this.points.push(point);
     }
     loadCampus() {

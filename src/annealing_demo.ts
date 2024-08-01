@@ -11,7 +11,6 @@ export class AnnealingDemo {
 
     public temperature: number = 0.0;
 
-
     constructor(container: HTMLElement) {
 
         this.solution = new SolutionState(this);
