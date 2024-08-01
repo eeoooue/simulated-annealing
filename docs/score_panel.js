@@ -10,6 +10,8 @@ export class ScorePanel {
         this.element.classList.add("info-panel");
     }
     update() {
-        this.element.innerText = `Current Score: ${this.demo.solution.currentScore}`;
+        const value = this.demo.solution.currentScore;
+        const rounded = Math.round(value * 1000) / 1000;
+        this.element.innerText = `Current Score: ${rounded}`;
     }
 }
