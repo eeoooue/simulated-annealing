@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Simulated Annealing</title>
+</head>
+
+<body>
+
+    <div class="demo-container">
+
+        <div class="display-area">
+            <div class="map-container">
+
+            </div>
+
+            <div class="panel-container">
+
+                <div class="info-panel">
+                    Current Score: 0
+                </div>
+
+                <div class="info-panel">
+                    States Accepted: 0
+                    <br>
+                    States Rejected: 0
+                    <br>
+                    %Acceptance: (0%)
+                </div>
+
+                <div class="info-panel">
+                    Temperature: 100
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-area">
+            <div class="div">
+                COLD
+            </div>
+            <input class="temperature-slider" type="range" min="0" max="1000" value="196"></input>
+            <div class="div">
+                HOT
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

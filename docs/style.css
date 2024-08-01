@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.demo-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-area {
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+    width: 80%;
+    margin: 20px;
+    background-color: pink;
+}
+
+.map-container {
+    background-color: red;
+    height: 100%;
+    width: 60%;
+}
+
+.panel-container {
+    background-color: purple;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-panel {
+    background-color: white;
+    padding: 10px 10px;
+    margin: auto;
+}
+
+
+.controls-area {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+
+.temperature-slider {
+    margin: 0px 20px;
+    width: 100%;
+}
+
