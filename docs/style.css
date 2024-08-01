@@ -26,17 +26,20 @@ body {
     height: 70%;
     width: 80%;
     margin: 20px;
-    background-color: pink;
+    /* background-color: pink; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 30px 30px;
+    border-radius: 10px;
 }
 
 .map-container {
-    background-color: red;
+    background-color: gray;
     height: 100%;
     width: 60%;
 }
 
 .panel-container {
-    background-color: purple;
+    /* background-color: purple; */
     height: 100%;
     width: 40%;
     display: flex;
@@ -47,6 +50,15 @@ body {
     background-color: white;
     padding: 10px 10px;
     margin: auto;
+    min-height: 25%;
+    min-width: 80%;
+    border-radius: 10px;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
@@ -54,11 +66,15 @@ body {
     display: flex;
     flex-direction: row;
     width: 80%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 30px 30px;
+    border-radius: 10px;
 }
 
 
 .temperature-slider {
     margin: 0px 20px;
     width: 100%;
+    
 }
 
