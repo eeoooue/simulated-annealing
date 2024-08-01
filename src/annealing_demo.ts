@@ -19,7 +19,6 @@ export class AnnealingDemo {
         this.controls = new DemoControls(this, container);
 
         setInterval(async () => {
-            // Ensure the task runs in the background without blocking the main thread
             await this.performBackgroundTask();
         }, 200);
     }
@@ -37,23 +36,7 @@ export class AnnealingDemo {
         }
     }
 
-    setup(): void {
-
-    }
-
     async performBackgroundTask(): Promise<void> {
-        // await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
-        console.log("Background task completed at", new Date().toLocaleTimeString());
-
         this.solution.attemptMutation();
-
     }
-
-
-
-    
-
-
-
-
 }

@@ -17,7 +17,6 @@ export class AnnealingDemo {
         this.display = new DemoDisplay(this, container);
         this.controls = new DemoControls(this, container);
         setInterval(() => __awaiter(this, void 0, void 0, function* () {
-            // Ensure the task runs in the background without blocking the main thread
             yield this.performBackgroundTask();
         }), 200);
     }
@@ -30,12 +29,8 @@ export class AnnealingDemo {
             this.display.update();
         }
     }
-    setup() {
-    }
     performBackgroundTask() {
         return __awaiter(this, void 0, void 0, function* () {
-            // await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
-            console.log("Background task completed at", new Date().toLocaleTimeString());
             this.solution.attemptMutation();
         });
     }
