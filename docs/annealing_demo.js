@@ -1,15 +1,42 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import { DemoControls } from "./demo_controls.js";
 import { DemoDisplay } from "./demo_display.js";
+import { SolutionState } from "./solution_state.js";
 export class AnnealingDemo {
     constructor(container) {
         this.temperature = 0.0;
+        this.solution = new SolutionState(this);
         this.display = new DemoDisplay(this, container);
         this.controls = new DemoControls(this, container);
+        setInterval(() => __awaiter(this, void 0, void 0, function* () {
+            // Ensure the task runs in the background without blocking the main thread
+            yield this.performBackgroundTask();
+        }), 200);
     }
     updateTemperature(temperature) {
         this.temperature = temperature;
-        this.display.update();
+        this.refreshDisplay();
+    }
+    refreshDisplay() {
+        if (this.display != null) {
+            this.display.update();
+        }
     }
     setup() {
+    }
+    performBackgroundTask() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
+            console.log("Background task completed at", new Date().toLocaleTimeString());
+            this.solution.attemptMutation();
+        });
     }
 }

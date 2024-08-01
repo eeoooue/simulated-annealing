@@ -1,11 +1,15 @@
 export class ScorePanel {
-    constructor(parent) {
+    constructor(demo, parent) {
         this.element = document.createElement("div");
+        this.demo = demo;
         parent.appendChild(this.element);
         this.styleContainer();
+        this.update();
     }
     styleContainer() {
         this.element.classList.add("info-panel");
-        this.element.innerText = "Current Score: 0";
+    }
+    update() {
+        this.element.innerText = `Current Score: ${this.demo.solution.currentScore}`;
     }
 }

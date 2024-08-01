@@ -1,11 +1,18 @@
 export class AcceptancePanel {
-    constructor(parent) {
+    constructor(demo, parent) {
         this.element = document.createElement("div");
+        this.demo = demo;
         parent.appendChild(this.element);
         this.styleContainer();
+        this.update();
     }
     styleContainer() {
         this.element.classList.add("info-panel");
-        this.element.innerHTML = "States Accepted: 0 <br> States Rejected: 0 <br> %Acceptance: (0%)";
+    }
+    update() {
+        const accepted = this.demo.solution.statesAccepted;
+        const rejected = this.demo.solution.statesRejected;
+        const percentage = Math.round(100.0 * accepted / (accepted + rejected));
+        this.element.innerHTML = `States Accepted: ${accepted} <br> States Rejected: ${rejected} <br> Acceptance: (${percentage}%)`;
     }
 }

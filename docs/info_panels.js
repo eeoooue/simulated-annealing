@@ -7,14 +7,16 @@ export class InfoPanels {
         this.demo = demo;
         parent.appendChild(this.container);
         this.styleContainer();
-        this.panel1 = new ScorePanel(this.container);
-        this.panel2 = new AcceptancePanel(this.container);
+        this.panel1 = new ScorePanel(this.demo, this.container);
+        this.panel2 = new AcceptancePanel(this.demo, this.container);
         this.panel3 = new TemperaturePanel(this.demo, this.container);
     }
     styleContainer() {
         this.container.classList.add("panel-container");
     }
     update() {
+        this.panel1.update();
+        this.panel2.update();
         this.panel3.update();
     }
 }

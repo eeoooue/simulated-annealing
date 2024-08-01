@@ -1,4 +1,5 @@
-import { AnnealingDemo } from "./annealing_demo";
+
+import { AnnealingDemo } from "./annealing_demo.js";
 
 export class TemperaturePanel {
 
