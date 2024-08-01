@@ -2,12 +2,10 @@
 import { AnnealingDemo } from "./annealing_demo.js";
 import { SolutionState } from "./solution_state.js";
 
-
 export class ScorePanel {
 
     public element: HTMLElement = document.createElement("div")
     public demo: AnnealingDemo;
-
 
     constructor(demo: AnnealingDemo, parent: HTMLElement){
 
