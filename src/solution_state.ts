@@ -1,5 +1,6 @@
 
 import { AnnealingDemo } from "./annealing_demo.js";
+import { Statistician } from "./statistician.js";
 
 export class SolutionState {
 
@@ -8,6 +9,8 @@ export class SolutionState {
     public currentScore = 1.0;
     public statesAccepted = 0;
     public statesRejected = 0;
+
+    public statistician: Statistician = new Statistician();
 
     constructor(demo: AnnealingDemo) {
 
@@ -41,11 +44,10 @@ export class SolutionState {
             return true;
         }
 
-        if (change < 0){
-            return true;
-        }
+        var celcius = this.demo.temperature;
+        const verdict = this.statistician.acceptEnergyChangeAtTemperature(change, celcius);
 
-        return false;
+        return verdict;
     }
 
     getRandomState() : number {

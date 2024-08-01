@@ -21,7 +21,7 @@ export class TemperatureSlider {
     }
 
     notify(){
-        const temperature: number = parseFloat(this.element.value) / 10;
+        const temperature: number = parseInt(this.element.value) - 273;
         this.demo.updateTemperature(temperature);
     }
 
@@ -32,7 +32,7 @@ export class TemperatureSlider {
     setupSlider(){
         this.element.type = "range"
         this.element.min = "0"
-        this.element.max = "1000"
+        this.element.max = "1273"
         this.element.value = "196"
     }
 }

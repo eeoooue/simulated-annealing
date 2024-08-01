@@ -1,8 +1,10 @@
+import { Statistician } from "./statistician.js";
 export class SolutionState {
     constructor(demo) {
         this.currentScore = 1.0;
         this.statesAccepted = 0;
         this.statesRejected = 0;
+        this.statistician = new Statistician();
         this.demo = demo;
         this.attemptMutation();
     }
@@ -24,10 +26,9 @@ export class SolutionState {
         if (this.statesAccepted == 0) {
             return true;
         }
-        if (change < 0) {
-            return true;
-        }
-        return false;
+        var celcius = this.demo.temperature;
+        const verdict = this.statistician.acceptEnergyChangeAtTemperature(change, celcius);
+        return verdict;
     }
     getRandomState() {
         return Math.random();

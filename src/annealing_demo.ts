@@ -20,12 +20,12 @@ export class AnnealingDemo {
 
         setInterval(async () => {
             await this.performBackgroundTask();
-        }, 200);
+        }, 50);
     }
 
     updateTemperature(temperature: number) {
 
-        this.temperature = temperature;
+        this.temperature = temperature * 1;
         this.refreshDisplay();
     }
 

@@ -5,6 +5,6 @@ export class MapCanvas {
         this.styleContainer();
     }
     styleContainer() {
-        this.container.classList.add("map-container");
+        this.container.classList.add("map-canvas");
     }
 }
