@@ -1,16 +1,27 @@
 
+import { AnnealingDemo } from "./annealing_demo.js";
+import { SolutionState } from "./solution_state.js";
+
+
 export class ScorePanel {
 
     public element: HTMLElement = document.createElement("div")
+    public demo: AnnealingDemo;
 
-    constructor(parent: HTMLElement){
 
+    constructor(demo: AnnealingDemo, parent: HTMLElement){
+
+        this.demo = demo;
         parent.appendChild(this.element)
         this.styleContainer();
+        this.update();
     }
 
     styleContainer(){
         this.element.classList.add("info-panel")
-        this.element.innerText = "Current Score: 0"
+    }
+
+    update(){
+        this.element.innerText = `Current Score: ${this.demo.solution.currentScore}`;
     }
 }

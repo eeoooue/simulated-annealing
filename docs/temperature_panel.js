@@ -1,11 +1,15 @@
 export class TemperaturePanel {
-    constructor(parent) {
+    constructor(demo, parent) {
         this.element = document.createElement("div");
+        this.demo = demo;
         parent.appendChild(this.element);
         this.styleContainer();
+        this.update();
     }
     styleContainer() {
         this.element.classList.add("info-panel");
-        this.element.innerHTML = "Temperature: 100";
+    }
+    update() {
+        this.element.innerHTML = `Temperature: ${this.demo.temperature}°C`;
     }
 }

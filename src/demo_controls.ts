@@ -1,5 +1,6 @@
 
 
+import { AnnealingDemo } from "./annealing_demo.js";
 import { TemperatureSlider } from "./temperature_slider.js";
 
 export class DemoControls {
@@ -10,13 +11,17 @@ export class DemoControls {
     public coldLabel: HTMLElement = document.createElement("div");
     public slider: TemperatureSlider; 
     public hotLabel: HTMLElement = document.createElement("div");
+
+    public demo: AnnealingDemo;
     
-    constructor(parent: HTMLElement){
+    constructor(demo: AnnealingDemo,  parent: HTMLElement){
+
+        this.demo = demo;
 
         parent.appendChild(this.container);
         this.styleContainer();
         this.container.appendChild(this.coldLabel)
-        this.slider = new TemperatureSlider(this.container);
+        this.slider = new TemperatureSlider(this.demo, this.container);
         this.container.appendChild(this.hotLabel)
         this.styleLabels();
     }

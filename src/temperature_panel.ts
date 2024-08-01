@@ -1,16 +1,24 @@
 
+import { AnnealingDemo } from "./annealing_demo.js";
+
 export class TemperaturePanel {
 
     public element: HTMLElement = document.createElement("div")
+    public demo: AnnealingDemo;
 
-    constructor(parent: HTMLElement){
+    constructor(demo: AnnealingDemo, parent: HTMLElement){
 
+        this.demo = demo;
         parent.appendChild(this.element)
         this.styleContainer();
+        this.update();
     }
 
     styleContainer(){
         this.element.classList.add("info-panel")
-        this.element.innerHTML = "Temperature: 100"
+    }
+
+    update(){
+        this.element.innerHTML = `Temperature: ${this.demo.temperature}°C`;
     }
 }
