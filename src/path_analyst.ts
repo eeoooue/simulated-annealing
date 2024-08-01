@@ -3,6 +3,8 @@ import { MapPoint } from "./map_point.js";
 
 export class PathAnalyst {
 
+    public metresPerPixel = 0.778;
+
     constructor(){
 
     }
@@ -19,7 +21,13 @@ export class PathAnalyst {
             total += distance;
         }
 
-        return total;
+        return total * this.metresPerPixel;
+    }
+
+    getScore(points: MapPoint[]) {
+
+        const pathLength = this.getPathLength(points);
+        return pathLength / 300;
     }
 
     getDistanceBetweenPoints(a: MapPoint, b: MapPoint) : number {

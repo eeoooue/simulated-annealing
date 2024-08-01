@@ -1,5 +1,6 @@
 export class PathAnalyst {
     constructor() {
+        this.metresPerPixel = 0.778;
     }
     getPathLength(points) {
         const n = points.length;
@@ -11,7 +12,11 @@ export class PathAnalyst {
             const distance = this.getDistanceBetweenPoints(a, b);
             total += distance;
         }
-        return total;
+        return total * this.metresPerPixel;
+    }
+    getScore(points) {
+        const pathLength = this.getPathLength(points);
+        return pathLength / 300;
     }
     getDistanceBetweenPoints(a, b) {
         const x1 = a.x;

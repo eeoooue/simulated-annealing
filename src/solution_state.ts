@@ -24,6 +24,7 @@ export class SolutionState {
         this.demo = demo;
         this.loadPoints();
         this.pathLength = this.analyst.getPathLength(this.state);
+        this.currentScore = this.analyst.getScore(this.state);
         this.attemptMutation();
     }
 
@@ -41,12 +42,11 @@ export class SolutionState {
 
     attemptMutation() {
 
-        var suggestion: number = this.getRandomState();
         var suggestedState: MapPoint[] = this.getNewState();
         var suggestedPathLength: number = this.analyst.getPathLength(suggestedState);
         console.log(`found path with length ${suggestedPathLength} px`)
 
-        var newScore = suggestion;
+        var newScore = this.analyst.getScore(suggestedState);
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;
 
@@ -54,6 +54,7 @@ export class SolutionState {
             this.currentScore = newScore;
             this.state = suggestedState;
             this.statesAccepted += 1;
+            this.pathLength = this.analyst.getPathLength(this.state);
         }
         else {
             this.statesRejected += 1;
@@ -117,9 +118,5 @@ export class SolutionState {
         const verdict = this.statistician.acceptEnergyChangeAtTemperature(change, celcius);
 
         return verdict;
-    }
-
-    getRandomState(): number {
-        return Math.random();
     }
 }

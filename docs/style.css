@@ -42,7 +42,6 @@ body {
 }
 
 .map-canvas {
-    background-color: #eee;
     height: 650px;
     width: 650px;
     display: flex;
@@ -83,10 +82,7 @@ body {
     margin: 20px 20px;
 }
 
-
 .temperature-slider {
     margin: 0px 20px;
     width: 100%;
-    
 }
-
