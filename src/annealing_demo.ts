@@ -10,7 +10,7 @@ export class AnnealingDemo {
     public solution: SolutionState;
 
     public temperature: number = 0.0;
-
+    public iterationsPerSecond: number = 1000;
 
     constructor(container: HTMLElement) {
 
@@ -20,7 +20,7 @@ export class AnnealingDemo {
 
         setInterval(async () => {
             await this.performBackgroundTask();
-        }, 50);
+        }, 1000 / this.iterationsPerSecond);
     }
 
     updateTemperature(temperature: number) {

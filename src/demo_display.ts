@@ -14,29 +14,20 @@ export class DemoDisplay {
     constructor(demo: AnnealingDemo, parent: HTMLElement){
 
         this.demo = demo;
-
         parent.appendChild(this.container);
         this.styleContainer();
-        this.addChildren();
 
-        this.map = new MapCanvas(this.container);
+        this.map = new MapCanvas(this.demo, this.container);
         this.panels = new InfoPanels(this.demo, this.container);
     }
 
     update(){
-
-
+        this.map.update();
         this.panels.update();
     }
 
     styleContainer(){
         this.container.classList.add("display-area")
     }
-
-    addChildren(){
-        // add canvas
-        // add panels
-    }
-
 }
 

@@ -27,10 +27,23 @@ body {
     /* background-color: pink; */
 }
 
+.map-point {
+    background-color: black;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    border-radius: 100px;
+}
+
+.map-path-container {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+}
+
 .map-canvas {
-    background-color: gray;
-    height: 600px;
-    width: 600px;
+    height: 650px;
+    width: 650px;
     display: flex;
     margin: auto;
 }
@@ -69,10 +82,7 @@ body {
     margin: 20px 20px;
 }
 
-
 .temperature-slider {
     margin: 0px 20px;
     width: 100%;
-    
 }
-
