@@ -27,7 +27,7 @@ export class SolutionState {
     attemptMutation() {
         var suggestedState = this.getNewState();
         var suggestedPathLength = this.analyst.getPathLength(suggestedState);
-        console.log(`found path with length ${suggestedPathLength} px`);
+        // console.log(`found path with length ${suggestedPathLength} px`)
         var newScore = this.analyst.getScore(suggestedState);
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;

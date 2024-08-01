@@ -44,7 +44,7 @@ export class SolutionState {
 
         var suggestedState: MapPoint[] = this.getNewState();
         var suggestedPathLength: number = this.analyst.getPathLength(suggestedState);
-        console.log(`found path with length ${suggestedPathLength} px`)
+        // console.log(`found path with length ${suggestedPathLength} px`)
 
         var newScore = this.analyst.getScore(suggestedState);
         var oldScore = this.currentScore;
