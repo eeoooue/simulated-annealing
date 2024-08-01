@@ -22,6 +22,7 @@ export class DemoDisplay {
     }
 
     update(){
+        this.map.update();
         this.panels.update();
     }
 

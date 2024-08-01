@@ -18,7 +18,7 @@ export class AnnealingDemo {
         this.controls = new DemoControls(this, container);
         setInterval(() => __awaiter(this, void 0, void 0, function* () {
             yield this.performBackgroundTask();
-        }), 50);
+        }), 42);
     }
     updateTemperature(temperature) {
         this.temperature = temperature * 1;

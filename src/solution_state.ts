@@ -19,11 +19,9 @@ export class SolutionState {
     constructor(demo: AnnealingDemo) {
 
         this.demo = demo;
-
         this.loadPoints();
         this.attemptMutation();
     }
-
 
     loadPoints() {
 
