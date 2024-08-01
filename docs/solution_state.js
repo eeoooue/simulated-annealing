@@ -21,17 +21,52 @@ export class SolutionState {
     }
     attemptMutation() {
         var suggestion = this.getRandomState();
+        var suggestedState = this.getNewState();
         var newScore = suggestion;
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;
         if (this.acceptEnergyChange(energyChange)) {
             this.currentScore = newScore;
+            this.state = suggestedState;
             this.statesAccepted += 1;
         }
         else {
             this.statesRejected += 1;
         }
         this.demo.refreshDisplay();
+        // console.log(this.state);
+    }
+    getNewState() {
+        var result = this.getCurrentStateCopy();
+        var i = 0;
+        var j = 0;
+        while (i == j) {
+            i = this.getRandomIndex();
+            j = this.getRandomIndex();
+        }
+        var a = result[i];
+        var b = result[j];
+        result[j] = a;
+        result[i] = b;
+        return result;
+    }
+    getRandomIndex() {
+        const n = this.state.length;
+        var i = n;
+        while (i < 0 || i >= n) {
+            const roll = Math.random();
+            i = Math.round(roll * n);
+        }
+        return i;
+    }
+    getCurrentStateCopy() {
+        var result = [];
+        const n = this.state.length;
+        for (let i = 0; i < n; i++) {
+            var point = this.state[i];
+            result.push(point);
+        }
+        return result;
     }
     acceptEnergyChange(change) {
         if (this.statesAccepted == 0) {

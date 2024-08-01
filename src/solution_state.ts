@@ -39,6 +39,7 @@ export class SolutionState {
     attemptMutation() {
 
         var suggestion: number = this.getRandomState();
+        var suggestedState: MapPoint[] = this.getNewState();
 
         var newScore = suggestion;
         var oldScore = this.currentScore;
@@ -46,6 +47,7 @@ export class SolutionState {
 
         if (this.acceptEnergyChange(energyChange)) {
             this.currentScore = newScore;
+            this.state = suggestedState;
             this.statesAccepted += 1;
         }
         else {
@@ -53,7 +55,51 @@ export class SolutionState {
         }
 
         this.demo.refreshDisplay();
+        // console.log(this.state);
+    }
 
+    getNewState(): MapPoint[] {
+
+        var result: MapPoint[] = this.getCurrentStateCopy();
+
+        var i: number = 0;
+        var j: number = 0;
+        while (i == j){
+            i = this.getRandomIndex();
+            j = this.getRandomIndex();
+        }
+
+        var a: MapPoint = result[i];
+        var b: MapPoint = result[j];
+        result[j] = a;
+        result[i] = b;
+
+        return result;
+    }
+
+    getRandomIndex() : number {
+
+        const n: number = this.state.length;
+        var i: number = n;
+        while (i < 0 || i >= n){
+            const roll: number = Math.random();
+            i = Math.round(roll * n);
+        }
+
+        return i;
+    }
+
+    getCurrentStateCopy(): MapPoint[] {
+
+        var result: MapPoint[] = [];
+        const n = this.state.length;
+
+        for (let i = 0; i < n; i++) {
+            var point: MapPoint = this.state[i];
+            result.push(point);
+        }
+
+        return result;
     }
 
     acceptEnergyChange(change: number): boolean {
