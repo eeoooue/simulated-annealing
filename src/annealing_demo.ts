@@ -7,10 +7,18 @@ export class AnnealingDemo {
     public controls: DemoControls;
     public display: DemoDisplay;
 
+    public temperature: number = 0.0;
+
     constructor(container: HTMLElement){
 
-        this.display = new DemoDisplay(container);
-        this.controls = new DemoControls(container);
+        this.display = new DemoDisplay(this, container);
+        this.controls = new DemoControls(this, container);
+    }
+
+    updateTemperature(temperature: number){
+
+        this.temperature = temperature;
+        this.display.update();
     }
 
     setup() : void {

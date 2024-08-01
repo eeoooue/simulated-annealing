@@ -1,13 +1,28 @@
 
+import { AnnealingDemo } from "./annealing_demo.js";
+
+
+
 export class TemperatureSlider {
 
     public element: HTMLInputElement = document.createElement("input");
 
-    constructor(parent: HTMLElement){
+    public demo: AnnealingDemo;
 
+    constructor(demo: AnnealingDemo, parent: HTMLElement){
+
+        this.demo = demo;
         parent.appendChild(this.element);
         this.setupSlider();
         this.styleElement();
+
+        this.element.addEventListener("input", () => {this.notify()})
+        this.notify();
+    }
+
+    notify(){
+        const temperature: number = parseFloat(this.element.value) / 10;
+        this.demo.updateTemperature(temperature);
     }
 
     styleElement(){

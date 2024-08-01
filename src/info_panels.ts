@@ -1,5 +1,6 @@
 
 import { AcceptancePanel } from "./acceptance_panel.js";
+import { AnnealingDemo } from "./annealing_demo.js";
 import { ScorePanel } from "./score_panel.js";
 import { TemperaturePanel } from "./temperature_panel.js";
 
@@ -10,17 +11,23 @@ export class InfoPanels {
     public panel1: ScorePanel;
     public panel2: AcceptancePanel;
     public panel3: TemperaturePanel;
+    public demo: AnnealingDemo;
 
-    constructor(parent: HTMLElement){
+    constructor(demo: AnnealingDemo, parent: HTMLElement){
 
+        this.demo = demo;
         parent.appendChild(this.container);
         this.styleContainer();
         this.panel1 = new ScorePanel(this.container);
         this.panel2 = new AcceptancePanel(this.container);
-        this.panel3 = new TemperaturePanel(this.container);
+        this.panel3 = new TemperaturePanel(this.demo, this.container);
     }
     
     styleContainer(){
         this.container.classList.add("panel-container")
+    }
+
+    update(){
+        this.panel3.update();
     }
 }
