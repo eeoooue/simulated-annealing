@@ -13,12 +13,13 @@ import { SolutionState } from "./solution_state.js";
 export class AnnealingDemo {
     constructor(container) {
         this.temperature = 0.0;
+        this.iterationsPerSecond = 1000;
         this.solution = new SolutionState(this);
         this.display = new DemoDisplay(this, container);
         this.controls = new DemoControls(this, container);
         setInterval(() => __awaiter(this, void 0, void 0, function* () {
             yield this.performBackgroundTask();
-        }), 42);
+        }), 1000 / this.iterationsPerSecond);
     }
     updateTemperature(temperature) {
         this.temperature = temperature * 1;
