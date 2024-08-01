@@ -28,7 +28,7 @@ body {
 }
 
 .map-canvas {
-    background-color: gray;
+    background-color: #eee;
     height: 600px;
     width: 600px;
     display: flex;

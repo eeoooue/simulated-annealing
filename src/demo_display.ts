@@ -17,7 +17,7 @@ export class DemoDisplay {
         parent.appendChild(this.container);
         this.styleContainer();
 
-        this.map = new MapCanvas(this.container);
+        this.map = new MapCanvas(this.demo, this.container);
         this.panels = new InfoPanels(this.demo, this.container);
     }
 

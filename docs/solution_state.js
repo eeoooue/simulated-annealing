@@ -1,12 +1,23 @@
 import { Statistician } from "./statistician.js";
+import { MapData } from "./map_data.js";
 export class SolutionState {
     constructor(demo) {
         this.currentScore = 1.0;
         this.statesAccepted = 0;
         this.statesRejected = 0;
         this.statistician = new Statistician();
+        this.state = [];
         this.demo = demo;
+        this.loadPoints();
         this.attemptMutation();
+    }
+    loadPoints() {
+        const data = new MapData();
+        const n = data.points.length;
+        for (let i = 0; i < n; i++) {
+            var point = data.points[i];
+            this.state.push(point);
+        }
     }
     attemptMutation() {
         var suggestion = this.getRandomState();

@@ -1,6 +1,9 @@
 
 import { AnnealingDemo } from "./annealing_demo.js";
 import { Statistician } from "./statistician.js";
+import { MapData } from "./map_data.js";
+import { MapPoint } from "./map_point.js";
+
 
 export class SolutionState {
 
@@ -11,22 +14,37 @@ export class SolutionState {
     public statesRejected = 0;
 
     public statistician: Statistician = new Statistician();
+    public state: MapPoint[] = [];
 
     constructor(demo: AnnealingDemo) {
 
         this.demo = demo;
+
+        this.loadPoints();
         this.attemptMutation();
     }
 
-    attemptMutation(){
+
+    loadPoints() {
+
+        const data: MapData = new MapData();
+        const n = data.points.length;
+
+        for (let i = 0; i < n; i++) {
+            var point: MapPoint = data.points[i];
+            this.state.push(point);
+        }
+    }
+
+    attemptMutation() {
 
         var suggestion: number = this.getRandomState();
-        
+
         var newScore = suggestion;
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;
 
-        if (this.acceptEnergyChange(energyChange)){
+        if (this.acceptEnergyChange(energyChange)) {
             this.currentScore = newScore;
             this.statesAccepted += 1;
         }
@@ -40,7 +58,7 @@ export class SolutionState {
 
     acceptEnergyChange(change: number): boolean {
 
-        if (this.statesAccepted == 0){
+        if (this.statesAccepted == 0) {
             return true;
         }
 
@@ -50,7 +68,7 @@ export class SolutionState {
         return verdict;
     }
 
-    getRandomState() : number {
+    getRandomState(): number {
         return Math.random();
     }
 }

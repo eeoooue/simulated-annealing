@@ -1,6 +1,7 @@
 export class MapCanvas {
-    constructor(parent) {
+    constructor(demo, parent) {
         this.container = document.createElement("div");
+        this.demo = demo;
         parent.appendChild(this.container);
         this.styleContainer();
     }

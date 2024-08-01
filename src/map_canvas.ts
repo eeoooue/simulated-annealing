@@ -1,9 +1,15 @@
 
+import { AnnealingDemo } from "./annealing_demo.js";
+
 export class MapCanvas{
 
     public container: HTMLElement = document.createElement("div");
 
-    constructor(parent: HTMLElement){
+    public demo: AnnealingDemo;
+
+    constructor(demo: AnnealingDemo, parent: HTMLElement){
+
+        this.demo = demo;
         parent.appendChild(this.container);
         this.styleContainer();
     }
