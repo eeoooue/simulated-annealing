@@ -1,15 +1,20 @@
 export class MapPainter {
     constructor(container) {
+        this.canvas = document.createElement("div");
         this.mapSize = 650;
         this.container = container;
+        this.canvas.classList.add("map-canvas");
     }
     paintPoints(points) {
         this.container.replaceChildren();
+        this.canvas.replaceChildren();
+        this.container.appendChild(this.canvas);
         const n = points.length;
+        // only needs doing once.
         for (let i = 0; i < n; i++) {
             const point = points[i];
             const element = this.createPointElement(point);
-            this.container.appendChild(element);
+            this.canvas.appendChild(element);
         }
     }
     paintPaths(points) {
@@ -25,22 +30,22 @@ export class MapPainter {
     createPointElement(point) {
         var element = document.createElement("div");
         element.classList.add("map-point");
-        const x = point.getScaledX(this.mapSize);
-        const y = point.getScaledY(this.mapSize);
-        element.style.marginLeft = `${x}px`;
-        element.style.marginTop = `${y}px`;
+        const x = point.x / 10;
+        const y = point.y / 10;
+        element.style.marginLeft = `${x}%`;
+        element.style.marginTop = `${y}%`;
         return element;
     }
     createPathElement(a, b) {
         var element = document.createElement("div");
         element.classList.add("map-path-container");
-        const x1 = a.getScaledX(this.mapSize) + 5;
-        const y1 = a.getScaledY(this.mapSize) + 5;
-        const x2 = b.getScaledX(this.mapSize) + 5;
-        const y2 = b.getScaledY(this.mapSize) + 5;
+        const x1 = (a.x / 10) + 0.5;
+        const y1 = (a.y / 10) + 0.5;
+        const x2 = (b.x / 10) + 0.5;
+        const y2 = (b.y / 10) + 0.5;
         element.innerHTML = `
             <svg width="100%" height="100%" style="position:absolute;top:0;left:0;">
-            <line x1="${x1}px" y1="${y1}px" x2="${x2}px" y2="${y2}px" style="stroke:black;stroke-width:1"/>
+            <line x1="${x1}%" y1="${y1}%" x2="${x2}%" y2="${y2}%" style="stroke:black;stroke-width:1"/>
             </svg>
         `;
         return element;

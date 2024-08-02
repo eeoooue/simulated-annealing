@@ -28,6 +28,6 @@ export class MapCanvas{
     }
     
     styleContainer(){
-        this.container.classList.add("map-canvas")
+        this.container.classList.add("map-area")
     }
 }

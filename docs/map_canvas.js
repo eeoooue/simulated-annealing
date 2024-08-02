@@ -15,6 +15,6 @@ export class MapCanvas {
         this.painter.paintPaths(points);
     }
     styleContainer() {
-        this.container.classList.add("map-canvas");
+        this.container.classList.add("map-area");
     }
 }
