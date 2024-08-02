@@ -16,4 +16,10 @@ export class DemoDisplay {
     styleContainer() {
         this.container.classList.add("display-area");
     }
+    refreshCanvas() {
+        this.map.update();
+    }
+    refreshPanels() {
+        this.panels.update();
+    }
 }

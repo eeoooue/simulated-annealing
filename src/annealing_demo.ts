@@ -36,6 +36,14 @@ export class AnnealingDemo {
         }
     }
 
+    refreshCanvas(){
+        this.display.refreshCanvas();
+    }
+    
+    refreshPanels(){
+        this.display.refreshPanels();
+    }
+
     async performBackgroundTask(): Promise<void> {
         this.solution.attemptMutation();
     }
