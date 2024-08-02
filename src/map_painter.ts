@@ -7,21 +7,17 @@ export class MapPainter {
 
     public mapSize: number = 650;
 
-    constructor(container: HTMLElement){
+    constructor(container: HTMLElement, points: MapPoint[]){
         this.container = container;
         this.canvas.classList.add("map-canvas");
+        this.paintPoints(points);
     }
 
     paintPoints(points: MapPoint[]){
 
-        this.container.replaceChildren();
-
         this.canvas.replaceChildren();
-        this.container.appendChild(this.canvas);
 
         const n: number = points.length;
-
-        // only needs doing once.
 
         for(let i=0; i<n; i++){
 
@@ -32,6 +28,9 @@ export class MapPainter {
     }
 
     paintPaths(points: MapPoint[]) {
+
+        this.container.replaceChildren();
+        this.container.appendChild(this.canvas);
 
         const n: number = points.length;
 
@@ -63,11 +62,11 @@ export class MapPainter {
         var element = document.createElement("div");
         element.classList.add("map-path-container");
 
-        const x1: number = (a.x / 10) + 0.5;
-        const y1: number = (a.y / 10) + 0.5;
+        const x1: number = (a.x / 10) + 0.75;
+        const y1: number = (a.y / 10) + 0.75;
 
-        const x2: number = (b.x / 10) + 0.5;
-        const y2: number = (b.y / 10) + 0.5;
+        const x2: number = (b.x / 10) + 0.75;
+        const y2: number = (b.y / 10) + 0.75;
 
         element.innerHTML = `
             <svg width="100%" height="100%" style="position:absolute;top:0;left:0;">

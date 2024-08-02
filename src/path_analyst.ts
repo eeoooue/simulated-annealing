@@ -5,10 +5,6 @@ export class PathAnalyst {
 
     public metresPerPixel = 0.778;
 
-    constructor(){
-
-    }
-
     getPathLength(points: MapPoint[]) : number {
 
         const n: number = points.length;

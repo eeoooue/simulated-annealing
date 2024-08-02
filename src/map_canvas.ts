@@ -14,7 +14,7 @@ export class MapCanvas{
     constructor(demo: AnnealingDemo, parent: HTMLElement){
 
         this.demo = demo;
-        this.painter = new MapPainter(this.container);
+        this.painter = new MapPainter(this.container, this.demo.solution.state);
         parent.appendChild(this.container);
         this.styleContainer();
         this.update();
@@ -23,7 +23,6 @@ export class MapCanvas{
     update(){
         const solution: SolutionState = this.demo.solution;
         const points: MapPoint[] = solution.state;
-        this.painter.paintPoints(points);
         this.painter.paintPaths(points);
     }
     

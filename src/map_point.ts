@@ -11,12 +11,4 @@ export class MapPoint {
         this.x = x;
         this.y = y;
     }
-
-    getScaledX(mapSize: number){
-        return mapSize * this.x / 1000;
-    }
-
-    getScaledY(mapSize: number){
-        return mapSize * this.y / 1000;
-    }
 }

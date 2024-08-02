@@ -19,6 +19,6 @@ export class TemperatureSlider {
         this.element.type = "range";
         this.element.min = "0";
         this.element.max = "1273";
-        this.element.value = "196";
+        this.element.value = "292";
     }
 }

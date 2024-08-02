@@ -3,7 +3,7 @@ export class MapCanvas {
     constructor(demo, parent) {
         this.container = document.createElement("div");
         this.demo = demo;
-        this.painter = new MapPainter(this.container);
+        this.painter = new MapPainter(this.container, this.demo.solution.state);
         parent.appendChild(this.container);
         this.styleContainer();
         this.update();
@@ -11,7 +11,6 @@ export class MapCanvas {
     update() {
         const solution = this.demo.solution;
         const points = solution.state;
-        this.painter.paintPoints(points);
         this.painter.paintPaths(points);
     }
     styleContainer() {
