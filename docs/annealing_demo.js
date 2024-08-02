@@ -13,7 +13,7 @@ import { SolutionState } from "./solution_state.js";
 export class AnnealingDemo {
     constructor(container) {
         this.temperature = 0.0;
-        this.iterationsPerSecond = 144;
+        this.iterationsPerSecond = 200;
         this.solution = new SolutionState(this);
         this.display = new DemoDisplay(this, container);
         this.controls = new DemoControls(this, container);
@@ -23,18 +23,17 @@ export class AnnealingDemo {
     }
     updateTemperature(temperature) {
         this.temperature = temperature * 1;
-        this.refreshDisplay();
-    }
-    refreshDisplay() {
-        if (this.display != null) {
-            this.display.update();
-        }
+        this.refreshPanels();
     }
     refreshCanvas() {
-        this.display.refreshCanvas();
+        if (this.display != null) {
+            this.display.refreshCanvas();
+        }
     }
     refreshPanels() {
-        this.display.refreshPanels();
+        if (this.display != null) {
+            this.display.refreshPanels();
+        }
     }
     performBackgroundTask() {
         return __awaiter(this, void 0, void 0, function* () {

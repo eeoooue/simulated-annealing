@@ -4,7 +4,7 @@ import { PathAnalyst } from "./path_analyst.js";
 export class SolutionState {
     constructor(demo) {
         this.currentScore = 1.0;
-        this.pathLength = 0; // pixels
+        this.pathLength = 0; // metres
         this.statesAccepted = 0;
         this.statesRejected = 0;
         this.statistician = new Statistician();
@@ -26,8 +26,6 @@ export class SolutionState {
     }
     attemptMutation() {
         var suggestedState = this.getNewState();
-        var suggestedPathLength = this.analyst.getPathLength(suggestedState);
-        // console.log(`found path with length ${suggestedPathLength} px`)
         var newScore = this.analyst.getScore(suggestedState);
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;
@@ -36,12 +34,12 @@ export class SolutionState {
             this.state = suggestedState;
             this.statesAccepted += 1;
             this.pathLength = this.analyst.getPathLength(this.state);
+            this.demo.refreshCanvas();
         }
         else {
             this.statesRejected += 1;
         }
-        this.demo.refreshDisplay();
-        // console.log(this.state);
+        this.demo.refreshPanels();
     }
     getNewState() {
         var result = this.getCurrentStateCopy();

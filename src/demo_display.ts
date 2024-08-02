@@ -21,11 +21,6 @@ export class DemoDisplay {
         this.panels = new InfoPanels(this.demo, this.container);
     }
 
-    update(){
-        this.map.update();
-        this.panels.update();
-    }
-
     styleContainer(){
         this.container.classList.add("display-area")
     }

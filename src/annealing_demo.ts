@@ -10,7 +10,7 @@ export class AnnealingDemo {
     public solution: SolutionState;
 
     public temperature: number = 0.0;
-    public iterationsPerSecond: number = 144;
+    public iterationsPerSecond: number = 200;
 
     constructor(container: HTMLElement) {
 
@@ -26,22 +26,21 @@ export class AnnealingDemo {
     updateTemperature(temperature: number) {
 
         this.temperature = temperature * 1;
-        this.refreshDisplay();
+        this.refreshPanels();
     }
 
-    refreshDisplay(){
+    refreshCanvas() {
 
-        if (this.display != null){
-            this.display.update();
+        if (this.display != null) {
+            this.display.refreshCanvas();
         }
     }
 
-    refreshCanvas(){
-        this.display.refreshCanvas();
-    }
-    
-    refreshPanels(){
-        this.display.refreshPanels();
+    refreshPanels() {
+
+        if (this.display != null) {
+            this.display.refreshPanels();
+        }
     }
 
     async performBackgroundTask(): Promise<void> {

@@ -11,7 +11,7 @@ export class SolutionState {
     public demo: AnnealingDemo;
 
     public currentScore = 1.0;
-    public pathLength = 0; // pixels
+    public pathLength = 0; // metres
     public statesAccepted = 0;
     public statesRejected = 0;
 
@@ -43,9 +43,7 @@ export class SolutionState {
     attemptMutation() {
 
         var suggestedState: MapPoint[] = this.getNewState();
-        var suggestedPathLength: number = this.analyst.getPathLength(suggestedState);
-        // console.log(`found path with length ${suggestedPathLength} px`)
-
+        
         var newScore = this.analyst.getScore(suggestedState);
         var oldScore = this.currentScore;
         var energyChange = newScore - oldScore;
@@ -55,13 +53,13 @@ export class SolutionState {
             this.state = suggestedState;
             this.statesAccepted += 1;
             this.pathLength = this.analyst.getPathLength(this.state);
+            this.demo.refreshCanvas();
         }
         else {
             this.statesRejected += 1;
         }
 
-        this.demo.refreshDisplay();
-        // console.log(this.state);
+        this.demo.refreshPanels();
     }
 
     getNewState(): MapPoint[] {

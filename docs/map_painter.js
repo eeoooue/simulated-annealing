@@ -1,16 +1,14 @@
 export class MapPainter {
-    constructor(container) {
+    constructor(container, points) {
         this.canvas = document.createElement("div");
         this.mapSize = 650;
         this.container = container;
         this.canvas.classList.add("map-canvas");
+        this.paintPoints(points);
     }
     paintPoints(points) {
-        this.container.replaceChildren();
         this.canvas.replaceChildren();
-        this.container.appendChild(this.canvas);
         const n = points.length;
-        // only needs doing once.
         for (let i = 0; i < n; i++) {
             const point = points[i];
             const element = this.createPointElement(point);
@@ -18,6 +16,8 @@ export class MapPainter {
         }
     }
     paintPaths(points) {
+        this.container.replaceChildren();
+        this.container.appendChild(this.canvas);
         const n = points.length;
         for (let i = 0; i < n; i++) {
             const j = (i + 1) % n;
