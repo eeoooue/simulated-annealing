@@ -52,8 +52,8 @@ body {
 
 .map-point {
     background-color: black;
-    height: min(1.2vh, 1.2vw);
-    width: min(1.2vh, 1.2vw);
+    height: 1.5%;
+    width:  1.5%;
     position: absolute;
     border-radius: 100%;
 }

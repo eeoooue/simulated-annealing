@@ -39,10 +39,10 @@ export class MapPainter {
     createPathElement(a, b) {
         var element = document.createElement("div");
         element.classList.add("map-path-container");
-        const x1 = (a.x / 10) + 0.5;
-        const y1 = (a.y / 10) + 0.5;
-        const x2 = (b.x / 10) + 0.5;
-        const y2 = (b.y / 10) + 0.5;
+        const x1 = (a.x / 10) + 0.75;
+        const y1 = (a.y / 10) + 0.75;
+        const x2 = (b.x / 10) + 0.75;
+        const y2 = (b.y / 10) + 0.75;
         element.innerHTML = `
             <svg width="100%" height="100%" style="position:absolute;top:0;left:0;">
             <line x1="${x1}%" y1="${y1}%" x2="${x2}%" y2="${y2}%" style="stroke:black;stroke-width:1"/>
