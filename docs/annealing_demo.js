@@ -13,7 +13,7 @@ import { SolutionState } from "./solution_state.js";
 export class AnnealingDemo {
     constructor(container) {
         this.temperature = 0.0;
-        this.iterationsPerSecond = 1000;
+        this.iterationsPerSecond = 144;
         this.solution = new SolutionState(this);
         this.display = new DemoDisplay(this, container);
         this.controls = new DemoControls(this, container);

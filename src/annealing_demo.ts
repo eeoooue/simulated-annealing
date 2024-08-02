@@ -10,7 +10,7 @@ export class AnnealingDemo {
     public solution: SolutionState;
 
     public temperature: number = 0.0;
-    public iterationsPerSecond: number = 1000;
+    public iterationsPerSecond: number = 144;
 
     constructor(container: HTMLElement) {
 
