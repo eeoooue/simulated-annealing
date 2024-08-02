@@ -32,9 +32,8 @@ body {
     border-radius: 10px;
     margin: 20px 20px;
     width: 90%;
-    justify-content: space-between;
+    justify-content: space-around;
 }
-
 
 /* map */
 
@@ -53,10 +52,10 @@ body {
 
 .map-point {
     background-color: black;
-    height: 1vh;
-    width: 1vh;
+    height: min(1.2vh, 1.2vw);
+    width: min(1.2vh, 1.2vw);
     position: absolute;
-    border-radius: 0%;
+    border-radius: 100%;
 }
 
 .map-path-container {
@@ -94,5 +93,33 @@ body {
 /* controls */
 
 .temperature-slider {
-    width: 90%;
+    width: 80%;
 }
+
+/* media queries */
+
+@media only screen and (max-width: 600px) {
+    .map-area {
+        height: 300px;
+        width: 300px;
+    }
+
+    .map-canvas {
+        height: 300px;
+        width: 300px;
+    }
+
+    .map-path-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .controls-area {
+        padding: 30px 10px;
+        margin: 20px 10px;
+    }
+
+    .temperature-slider {
+        width: 70%;
+    }
+  }
