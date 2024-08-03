@@ -19,8 +19,6 @@ class MapData:
         if len(arr) != 3:
             return
         
-        print(arr)
-
         id = int(arr[0])
         x = int(arr[1])
         y = int(arr[2])
