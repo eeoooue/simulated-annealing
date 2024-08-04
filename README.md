@@ -12,7 +12,7 @@ While the cooling of the system is typically automated, you can try performing s
 
 The static web app presents a typical **Travelling Salesman Problem** for a map featuring 50 locations.
 
-To emulate the annealing process, 'heat up' the system by raising the temperature until it appears 'melted'.
+To emulate the annealing process, first 'heat up' the system by raising the temperature until it appears 'melted'.
 
 Then, gradually 'cool' the system at a steady rate to eventually arrive at a high quality solution.
 
