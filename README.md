@@ -11,7 +11,7 @@ While the cooling of the system is typically automated, you can try performing s
 
 To emulate the annealing process, first 'heat up' the system by raising the temperature until it appears 'melted'.
 
-Then, gradually 'cool' the system at a steady rate to eventually arrive at a high quality solution.
+Then, gradually 'cool' the system at a steady rate to hopefully arrive at a high quality solution.
 
 ![Image](./images/AnnealedExample.png)
 
