@@ -8,9 +8,7 @@ Inspired by annealing in metallurgy, this metaheuristic strategy provides a dyna
 
 ### Interactive Demo
 
-While the cooling of the system is typically automated, you can try performing simulated annealing by hand using this [interactive demo](https://eeoooue.github.io/simulated-annealing/).
-
-The static web app presents a typical **Travelling Salesman Problem** for a map featuring 50 locations.
+While the cooling of the system is typically automated, you can try performing simulated annealing by hand using this [interactive demo](https://eeoooue.github.io/simulated-annealing/), which presents a typical **Travelling Salesman Problem** for a map featuring 50 locations.
 
 To emulate the annealing process, first 'heat up' the system by raising the temperature until it appears 'melted'.
 
