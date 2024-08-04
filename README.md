@@ -1,7 +1,6 @@
 
 # Simulated Annealing
 
-
 Simulated Annealing is a single-state method for combinatorial optimization.
 
 Inspired by annealing in metallurgy, this metaheuristic strategy provides a dynamic temperature variable as a means of controlling the compromise between **exploration** and **exploitation** during the optimization process.
@@ -21,8 +20,6 @@ Then, gradually 'cool' the system at a steady rate to eventually arrive at a hig
 
 There are a staggering 608,281,864,034,267,560,872,252,163,321,295,376,887,552,831,379,210,240,000,000,000 possible solution states for the problem featured in this project.
 
-**Monte Carlo Sampling** has been used to estimate the distribution of path lengths among these possible solutions. See plot below.
-
-
+**Monte Carlo Sampling** has been used to estimate the distribution of path lengths among these possible solutions.
 
 ![Image](./images/SampledDistribution.png)
