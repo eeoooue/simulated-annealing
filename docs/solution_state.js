@@ -19,10 +19,24 @@ export class SolutionState {
     loadPoints() {
         const data = new MapData();
         const n = data.points.length;
+        const seen = new Set();
         for (let i = 0; i < n; i++) {
-            var point = data.points[i];
+            let j = 0;
+            while (seen.has(j)) {
+                j = this.getValueBetweenZeroAnd(n);
+            }
+            seen.add(j);
+            const point = data.points[j];
             this.state.push(point);
         }
+    }
+    getValueBetweenZeroAnd(n) {
+        var i = n;
+        while (i < 0 || i >= n) {
+            const roll = Math.random();
+            i = Math.round(roll * n);
+        }
+        return i;
     }
     attemptMutation() {
         var suggestedState = this.getNewState();
