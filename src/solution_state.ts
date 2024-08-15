@@ -34,10 +34,30 @@ export class SolutionState {
         const data: MapData = new MapData();
         const n = data.points.length;
 
+        const seen = new Set<number>();
+
         for (let i = 0; i < n; i++) {
-            var point: MapPoint = data.points[i];
+
+            let j = 0;
+            while (seen.has(j)){
+                j = this.getValueBetweenZeroAnd(n);
+            }
+
+            seen.add(j);
+            const point: MapPoint = data.points[j];
             this.state.push(point);
         }
+    }
+
+    getValueBetweenZeroAnd(n: number){
+
+        var i: number = n;
+        while (i < 0 || i >= n){
+            const roll: number = Math.random();
+            i = Math.round(roll * n);
+        }
+
+        return i;
     }
 
     attemptMutation() {
